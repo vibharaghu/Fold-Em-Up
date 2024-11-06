@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Wizard Tower.unity
+    guid: cf9f3d7261af21d4bb0d6eef6a565e61
+  - enabled: 1
+    path: Assets/Scenes/StartTownScene.unity
+    guid: f6e2439ea416d3440af3075a1ddc6279
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}
