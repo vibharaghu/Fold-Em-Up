@@ -1,0 +1,47 @@
+﻿title: ApproachDoor
+tags:
+---
+<<canMove Player false>>
+Player: -Knock- -Knock- -Knock-
+<i>CRASH</i>
+Wizard: What’s that? Who? I wasn’t expecting- Wait. Is it the first of the month already?
+Wizard: I guess it must be. You might as well come in then!
+<<canMove Player true>>
+===
+
+title: WizardEncounter
+tags:
+---
+<<canMove Player false>>
+Wizard: Oh! You must be my new apprentice! Welcome child. 
+Wizard: Um. What was I supposed to teach you again?
+    -> You’re supposed to teach me your magic!
+        Wizard: Oh yes, that! Thank you young one, I fear I've become a little forgetful in my old age. My head is stuffed full of origami folds!
+    -> You’re a weird old man.
+        Wizard: Well I suppose I can’t fault you for that. I am in fact a strange old man- I spend a little bit too much time folding. But I do know I was scheduled to get a new apprentice and teach them about… oh that’s it!
+    -> Sorry, you’ve got the wrong person
+        Wizard: Hm? No, no I was sure it was today… I was supposed to get a new apprentice. Well, even if you aren’t them, you’ll do! Everyone should learn about origami!
+Wizard: So you've come to learn the magic of origami! How wonderful, I do love passing along knowledge of this ancient art. Here in this land, origami is a sacred art. From the trees comes paper, we fold the paper to represent the forms we see in the world around us, and we use the magic of this land to bring the origami to life!
+Wizard: Origami has many wonderful uses, and we’re constantly finding more of them. Can you guess what some of those uses might be?
+    -> Relaxing!
+        Wizard: Yes indeed! Practicing origami can be very soothing; many in my field have noticed it helps with stress relief, concentration, and patience!
+    -> Making cool stuff!
+        Wizard: Why yes! Origami has helped scientists and engineers make many new forms of collapsible technology like parachutes and telescopes, and it's even helped architects make strong and interesting buildings!
+    -> Understanding math!
+        Wizard: Well done apprentice!
+    -> Fighting!
+        Wizard: Well, with the help of a little magic, I will teach you how to do this later, when we bring the origami to life. But even without magic origami has many uses in many different fields such as architecture, engineering, design, and more!
+    -> Tearing it to bits!
+        Wizard: Unfortunately that isn't quite correct. When making origami we fold the paper without tearing it, though there are some forms that allow you to make tears... blasphemous! 
+Wizard: As you learn from me, I’ll teach you all about where origami comes from, how we use it, what it can teach us, and how to fold more complex shapes to do bigger and better things. Now then, let’s start with your first lesson - folding a basic diamond!
+<<canMove Player true>>
+===
+
+title: OrigamiComesToLife
+tags:
+---
+Wizard: Wonderful job apprentice!
+Wizard: A diamond is one of the simplest and fastest origami we can fold, and it does not take much magic to animate it. In exchange, it isn't quite as useful as some more complex origami like a crane.
+Wizard: This origami can take a single hit for you if you find yourself in danger, so it's always good to have around as backup!
+Wizard: You’re getting the hang of this faster than I expected. Perhaps you can help me with my research soon… 
+===
