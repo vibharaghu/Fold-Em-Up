@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pointSelect : MonoBehaviour
 {
-    SpriteRenderer sprend;
+    public SpriteRenderer sprend;
     public bool entered;
     public bool selected;
     public Vector2 loc;
@@ -44,7 +44,7 @@ public class pointSelect : MonoBehaviour
         {
             selected = true;
 
-            sprend.color = Color.green;
+            
             
 
         } else {

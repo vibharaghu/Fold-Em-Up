@@ -16,6 +16,7 @@ public class SimpleFold : MonoBehaviour
     public Sprite folded_two_opposite;
     public Sprite folded_three;
     public Sprite folded_four;
+    List<pointSelect> prev_selec = null;
     bool clear = false;
     // Start is called before the first frame update
     void Start()
@@ -76,28 +77,79 @@ public class SimpleFold : MonoBehaviour
         
         if (initialized)
         {
-
-            int count = any_selected();
-           
-            if (count == 0) {
+            
+            pointSelect four_count = four_selected();
+            int middle_count = middle_selected();
+            List<pointSelect> any_selec = any_selected();
+            
+            if (four_count == null) {
                 flickering_one();
+                if (any_selec.Count > 0)
+                {
+                    flash_red(any_selec[0]);
+                    
+                }
+
+                if (prev_selec != null)
+                {
+                    clear_flashing();
+                    prev_selec[0].selected = false;
+                    selected = false;
+                    prev_selec = null;
+                    clear = false;
+                }
+                
                  
-            } else if (count == 1)
+            } else if (four_count != null)
             {
+                
                 if (!clear)
                 {
                     clear_flashing();
                     clear = true;
+                    four_count.sprend.color = Color.green;
                 }
                 
                 flickering_two();
-            } else
-            {
-                fold_paper();
-                hide_fold_dots();
-                clear_selected();
+
+                if (middle_count == 1)
+                {
+                    grid[scale / 2][scale / 2].GetComponent<pointSelect>().sprend.color = Color.green;
+                    fold_paper();
+                    hide_fold_dots();
+                    clear_selected();
+                    clear = false;
+                }
+                else if (any_selec.Count == 2)
+                {
+                    print(prev_selec[0]);
+                    print(any_selec[0]);
+                    print(any_selec[1]);
+                    if (prev_selec[0].name != any_selec[0].name)
+                    {
+
+                        flash_red(any_selec[0]);
+                        any_selec[0].selected = false;
+                    }
+                    else
+                    {
+                        flash_red(any_selec[1]);
+                        any_selec[1].selected = false;
+                    }
+
+                } else
+                {
+                    prev_selec = any_selec;
+                }
+               
+                
             }
+
+
+
             
+
+
 
         }
 
@@ -227,9 +279,25 @@ public class SimpleFold : MonoBehaviour
        
 
         
-
+    void flash_red(pointSelect ps)
+    {
         
-    
+        if (timer > 0 && timer < 1f)
+        {
+           
+            ps.sprend.color = Color.red;
+            
+        }
+        else
+        {
+            
+            ps.selected = false;
+            ps.sprend.color = Color.grey;
+        }
+
+    }
+
+
 
 
     void flickering_two()
@@ -329,28 +397,69 @@ public class SimpleFold : MonoBehaviour
 
     }
 
-    int any_selected()
+    
+
+    List<pointSelect> any_selected()
     {
-        int count = 0; 
+        
+        List<pointSelect> points = new List<pointSelect>();
         for (int i = 0; i <= scale; i++)
         {
             for (int j = 0; j <= scale; j++)
             {
                 GameObject p = grid[i][j];
                 pointSelect ps = p.GetComponent<pointSelect>();
-                print("Corner " + p.name);
+                
                 if (ps.selected == true)
                 {
-                    print(p.name + " selected");
-                    selected = true;
-                    count += 1;
+
+                    points.Add(ps);
+                    
                 }
             }
             
 
         }
    
-        return count;
+        return points;
+    }
+
+    pointSelect four_selected()
+    {
+        int count = 0;
+        if(corners[0].GetComponent<pointSelect>().selected)
+        {
+            selected = true;
+            return corners[0].GetComponent<pointSelect>();
+        }
+        if (corners[1].GetComponent<pointSelect>().selected)
+        {
+            selected = true;
+            return corners[1].GetComponent<pointSelect>();
+        }
+        if (corners[2].GetComponent<pointSelect>().selected)
+        {
+            selected = true;
+            return corners[2].GetComponent<pointSelect>();
+        }
+        if (corners[3].GetComponent<pointSelect>().selected)
+        {
+            selected = true;
+            return corners[3].GetComponent<pointSelect>();
+        }
+        selected = false;
+        return null;
+       
+    }
+
+    int middle_selected()
+    {
+        if (grid[scale / 2][scale/2].GetComponent<pointSelect>().selected)
+        {
+            selected = true;
+            return 1;
+        }
+        return 0;
     }
 
     void clear_flashing()
