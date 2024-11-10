@@ -16,6 +16,7 @@ public class SimpleFold : MonoBehaviour
     public Sprite folded_two_opposite;
     public Sprite folded_three;
     public Sprite folded_four;
+    bool clear = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -83,11 +84,17 @@ public class SimpleFold : MonoBehaviour
                  
             } else if (count == 1)
             {
-                clear_flashing();
+                if (!clear)
+                {
+                    clear_flashing();
+                    clear = true;
+                }
+                
                 flickering_two();
             } else
             {
                 fold_paper();
+                hide_fold_dots();
                 clear_selected();
             }
             
@@ -106,7 +113,7 @@ public class SimpleFold : MonoBehaviour
             if (fold[i])
             {
                 fold_count.Add(i);
-                print("Folded " + i);
+                //print("Folded " + i);
             }
         }
 
@@ -164,7 +171,7 @@ public class SimpleFold : MonoBehaviour
                 if (!fold[i] && i != corner_selected)
                 {
                     not_folded = i;
-                    print("not "+ not_folded);
+                    //print("not "+ not_folded);
                 }
             }
 
@@ -175,10 +182,54 @@ public class SimpleFold : MonoBehaviour
             GameObject paper = GameObject.Find("Paper Mesh");
             paper.GetComponent<SpriteRenderer>().sprite = folded_four;
             paper.GetComponent<SpriteRenderer>().sortingOrder = -1;
+            fold[corner_selected] = true;
         }
 
         
     }
+
+
+    void hide_fold_dots()
+    {
+        for (int r = 0; r < 4; r++)
+        {
+            for (int c = 0; c < 4 - r; c++)
+            {
+                if (fold[0])
+                {
+                    GameObject point = grid[r][c];
+                    point.GetComponent<pointSelect>().hide_dot();
+                }
+
+                if (fold[1])
+                {
+                    GameObject point = grid[r][scale - c];
+                    point.GetComponent<pointSelect>().hide_dot();
+                }
+
+                if (fold[2])
+                {
+                    GameObject point = grid[scale - r][scale - c];
+                    point.GetComponent<pointSelect>().hide_dot();
+                }
+
+                if (fold[3])
+                {
+                    GameObject point = grid[scale - r][c];
+                    point.GetComponent<pointSelect>().hide_dot();
+                }
+            }
+        }
+    }
+
+
+        
+       
+
+        
+
+        
+    
 
 
     void flickering_two()
@@ -235,15 +286,15 @@ public class SimpleFold : MonoBehaviour
                     if (ps.entered == false && ps.selected == false)
                     {
                         p.GetComponent<SpriteRenderer>().color = Color.yellow;
-                        print("Blinking " + p.name);
+                        //print("Blinking " + p.name);
                     }
 
                 }
                 else
                 {
-                    print(i);
+                    //print(i);
                     GameObject p = corners[i];
-                    print(p.name);
+                    //print(p.name);
                 }
 
 
@@ -281,14 +332,16 @@ public class SimpleFold : MonoBehaviour
     int any_selected()
     {
         int count = 0; 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i <= scale; i++)
         {
-            for (int j = 0; j < 4; j++)
+            for (int j = 0; j <= scale; j++)
             {
                 GameObject p = grid[i][j];
                 pointSelect ps = p.GetComponent<pointSelect>();
+                print("Corner " + p.name);
                 if (ps.selected == true)
                 {
+                    print(p.name + " selected");
                     selected = true;
                     count += 1;
                 }
@@ -296,7 +349,7 @@ public class SimpleFold : MonoBehaviour
             
 
         }
-
+   
         return count;
     }
 
