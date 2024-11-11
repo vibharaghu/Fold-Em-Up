@@ -46,7 +46,10 @@ public class SimpleFold : MonoBehaviour
         corners[3] = grid[scale][0];
 
         initialized = true;
-        
+
+        GameObject paper = GameObject.Find("Paper Mesh");
+        paper.GetComponent<SpriteRenderer>().sortingOrder = -1;
+
     }
 
     void setScale(int scale)
