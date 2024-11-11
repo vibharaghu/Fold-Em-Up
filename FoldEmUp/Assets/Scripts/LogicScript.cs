@@ -1,16 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 public class LogicScript : MonoBehaviour
 {
+    [SerializeField] public LevelLoader levelLoader;
+
     public void EnterWizardTower()
     {
-        SceneManager.LoadScene("Wizard Tower");
+        levelLoader.LoadGivenLevel("Wizard Tower");
     }
     public void ReturnToVillage()
     {
-        SceneManager.LoadScene("StartTownScene");
+        levelLoader.LoadGivenLevel("StartTownScene");
     }
+
+    [YarnCommand("goToPaperFolding")]
+    public void GoToPaperFolding()
+    {
+        levelLoader.LoadGivenLevel("SimpleFold");
+    }
+
 }

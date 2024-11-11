@@ -28,20 +28,22 @@ Wizard: Origami has many wonderful uses, and we’re constantly finding more of 
     -> Making cool stuff!
         Wizard: Why yes! Origami has helped scientists and engineers make many new forms of collapsible technology like parachutes and telescopes, and it's even helped architects make strong and interesting buildings!
     -> Understanding math!
-        Wizard: Well done apprentice!
+        Wizard: Well done apprentice! Yes, origami can be used to help us understand fundamental mathematical concepts like geometry, fractions, spatial reasoning and problem solving!
     -> Fighting!
         Wizard: Well, with the help of a little magic, I will teach you how to do this later, when we bring the origami to life. But even without magic origami has many uses in many different fields such as architecture, engineering, design, and more!
     -> Tearing it to bits!
         Wizard: Unfortunately that isn't quite correct. When making origami we fold the paper without tearing it, though there are some forms that allow you to make tears... blasphemous! 
 Wizard: As you learn from me, I’ll teach you all about where origami comes from, how we use it, what it can teach us, and how to fold more complex shapes to do bigger and better things. Now then, let’s start with your first lesson - folding a basic diamond!
-<<canMove Player true>>
+<<goToPaperFolding Logic>>
 ===
 
 title: OrigamiComesToLife
 tags:
 ---
-Wizard: Wonderful job apprentice!
+<<canMove Player false>>
+Wizard: Wonderful job apprentice! You'll see the diamond-shaped shield you folded and brought to life following you around now.
 Wizard: A diamond is one of the simplest and fastest origami we can fold, and it does not take much magic to animate it. In exchange, it isn't quite as useful as some more complex origami like a crane.
-Wizard: This origami can take a single hit for you if you find yourself in danger, so it's always good to have around as backup!
-Wizard: You’re getting the hang of this faster than I expected. Perhaps you can help me with my research soon… 
+Wizard: This origami shield can take a single hit for you if you find yourself in danger, so it's always good to have one around as a backup!
+Wizard: You’re getting the hang of this faster than I expected. Perhaps you can help me with my research soon…
+<<canMove Player true>>
 ===
