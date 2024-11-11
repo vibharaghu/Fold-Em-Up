@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SimpleFold : MonoBehaviour
 {
+    [SerializeField] public LevelLoader levelLoader;
     int scale = 0;
     GameObject[][] grid;
     GameObject[] corners;
@@ -18,6 +20,7 @@ public class SimpleFold : MonoBehaviour
     public Sprite folded_four;
     List<pointSelect> prev_selec = null;
     bool clear = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -235,6 +238,11 @@ public class SimpleFold : MonoBehaviour
             paper.GetComponent<SpriteRenderer>().sprite = folded_four;
             paper.GetComponent<SpriteRenderer>().sortingOrder = -1;
             fold[corner_selected] = true;
+
+            ///Once all four folds are made, go back to the wizard tower
+
+            //add in a delay/congrats message here before scene change?
+            levelLoader.LoadGivenLevel("WizardTowerPostFold");
         }
 
         

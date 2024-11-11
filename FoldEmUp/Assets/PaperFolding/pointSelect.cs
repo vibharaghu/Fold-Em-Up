@@ -9,8 +9,8 @@ public class pointSelect : MonoBehaviour
     public bool selected;
     public Vector2 loc;
     int scale = 0;
-    // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
         sprend = GetComponent<SpriteRenderer>();
         sprend.color = Color.gray;
