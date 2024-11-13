@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour
     [Header("Components")]
     public Rigidbody2D myRigidBody2D;
     public Animator animator;
+    public AudioSource footSteps;
     private void Awake()
     {
         myRigidBody2D = GetComponent<Rigidbody2D>();
@@ -38,14 +39,24 @@ public class PlayerScript : MonoBehaviour
         if (movementEnabled)
         {
             myRigidBody2D.MovePosition(myRigidBody2D.position + movement * movespeed * Time.fixedDeltaTime);
-        }
+            float absoluteSpeed = Mathf.Abs(movement.x) + Mathf.Abs(movement.y);
+            if (absoluteSpeed > .01)
+            {
+                if (!footSteps.isPlaying) footSteps.Play();
+            }
+            else
+            {
+                footSteps.Stop();
+            }
 
-        float horizontalSpeed = movement.x;
-        if ((horizontalSpeed > 0 && !facingRight) || (horizontalSpeed < 0 && facingRight))
-        {
-            Flip();
+            float horizontalSpeed = movement.x;
+            if ((horizontalSpeed > 0 && !facingRight) || (horizontalSpeed < 0 && facingRight))
+            {
+                Flip();
+            }
+            animator.SetFloat("Speed", absoluteSpeed);
         }
-        animator.SetFloat("Speed", Mathf.Abs(movement.x) + Mathf.Abs(movement.y));
+        else animator.SetFloat("Speed", 0);
     }
     private void Flip()
     {

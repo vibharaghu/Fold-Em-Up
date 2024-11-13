@@ -2276,8 +2276,8 @@ PolygonCollider2D:
     - - {x: -1.4908247, y: 2.0027704}
       - {x: -1.4998069, y: -0.97653127}
       - {x: -0.46353722, y: -0.9918184}
-      - {x: -0.42240715, y: 0.0058865547}
-      - {x: 0.47935104, y: 0.013550162}
+      - {x: -0.45911026, y: -0.520543}
+      - {x: 0.49807358, y: -0.5139456}
       - {x: 0.50808716, y: -0.9708842}
       - {x: 1.2392288, y: -0.88346756}
       - {x: 1.3977613, y: 2.0772214}
@@ -2342,7 +2342,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.33}
+  m_Offset: {x: 0, y: -0.76}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2353,7 +2353,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.5, y: 0.15}
   m_EdgeRadius: 0
 --- !u!1 &630941680
 GameObject:
@@ -2384,7 +2384,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b402f1f4a664c4a08a20dface8331b3b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -24529,6 +24529,22 @@ PrefabInstance:
     - target: {fileID: 3752054761527514668, guid: 345ab65efefb3bd4ca24fe7c5fbfad86, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129806461596165462, guid: 345ab65efefb3bd4ca24fe7c5fbfad86, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129806461596165462, guid: 345ab65efefb3bd4ca24fe7c5fbfad86, type: 3}
+      propertyPath: Priority
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129806461596165462, guid: 345ab65efefb3bd4ca24fe7c5fbfad86, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129806461596165462, guid: 345ab65efefb3bd4ca24fe7c5fbfad86, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5787680653365801376, guid: 345ab65efefb3bd4ca24fe7c5fbfad86, type: 3}
       propertyPath: movespeed
