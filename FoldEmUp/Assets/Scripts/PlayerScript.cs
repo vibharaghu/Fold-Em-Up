@@ -44,10 +44,10 @@ public class PlayerScript : MonoBehaviour
             {
                 if (!footSteps.isPlaying) footSteps.Play();
             }
-            else
-            {
-                footSteps.Stop();
-            }
+            //else
+            //{
+            //    footSteps.Stop();
+            //}
 
             float horizontalSpeed = movement.x;
             if ((horizontalSpeed > 0 && !facingRight) || (horizontalSpeed < 0 && facingRight))
