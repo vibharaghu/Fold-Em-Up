@@ -17,6 +17,16 @@ public class LogicScript : MonoBehaviour
         playerScript.canMove(false);
         levelLoader.LoadGivenLevel("Wizard Tower");
     }
+    public void EnterHouse1()
+    {
+        playerScript.canMove(false);
+        levelLoader.LoadGivenLevel("House1Scene");
+    }
+    public void EnterHouse2()
+    {
+        playerScript.canMove(false);
+        levelLoader.LoadGivenLevel("House2Scene");
+    }
     public void EnterHouse3()
     {
         playerScript.canMove(false);
