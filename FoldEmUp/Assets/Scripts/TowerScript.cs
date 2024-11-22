@@ -6,7 +6,7 @@ public class TowerScript : MonoBehaviour
 {
     [Header("Components")]
     public LogicScript logic;
-    public int house; //0 for wizard tower, 3 for house 3
+    public int house; //0 for wizard tower, # for house #
     void Awake()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
@@ -21,7 +21,15 @@ public class TowerScript : MonoBehaviour
     {
         if (collision.gameObject.layer == 3)
         {
-            if(house == 3) 
+            if (house == 1)
+            {
+                logic.EnterHouse1();
+            }
+            else if (house == 2)
+            {
+                logic.EnterHouse2();
+            }
+            else if (house == 3) 
             {
                 logic.EnterHouse3();
             }
