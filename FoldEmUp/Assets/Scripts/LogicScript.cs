@@ -6,42 +6,35 @@ using Yarn.Unity;
 public class LogicScript : MonoBehaviour
 {
     [SerializeField] public LevelLoader levelLoader;
-    [Header("Components")]
-    private PlayerScript playerScript;
     private void Awake()
     {
-        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        levelLoader = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
     }
-    public void EnterWizardTower()
+    public void EnterWizardTower(Vector3 targetVector)
     {
-        playerScript.canMove(false);
-        levelLoader.LoadGivenLevel("Wizard Tower");
+        levelLoader.LoadGivenLevel("Wizard Tower", targetVector, 4);
     }
     public void EnterHouse1()
     {
-        playerScript.canMove(false);
-        levelLoader.LoadGivenLevel("House1Scene");
+        levelLoader.LoadGivenLevel("House1Scene", new Vector3(4.65f, -6.4f, -2f), 4);
     }
     public void EnterHouse2()
     {
-        playerScript.canMove(false);
-        levelLoader.LoadGivenLevel("House2Scene");
+        levelLoader.LoadGivenLevel("House2Scene", new Vector3(4.65f, -6.4f, -2f), 4);
     }
     public void EnterHouse3()
     {
-        playerScript.canMove(false);
-        levelLoader.LoadGivenLevel("House3Scene");
+        levelLoader.LoadGivenLevel("House3Scene", new Vector3(4.65f, -6.4f, -2f), 4);
     }
-    public void ReturnToVillage()
+    public void ReturnToVillage(Vector3 targetVector)
     {
-        playerScript.canMove(false);
-        levelLoader.LoadGivenLevel("StartTownScene");
+        levelLoader.LoadGivenLevel("StartTownScene", targetVector, 6);
     }
 
     [YarnCommand("goToPaperFolding")]
     public void GoToPaperFolding()
     {
-        levelLoader.LoadGivenLevel("SimpleFold");
+        levelLoader.LoadGivenLevel("SimpleFold", Vector3.zero, 4);
     }
 
 }
