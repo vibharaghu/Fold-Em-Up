@@ -35,8 +35,7 @@ public class TowerScript : MonoBehaviour
             }
             else
             {
-                logic.EnterWizardTower();
-
+                logic.EnterWizardTower(new Vector3(2.43f, -6f, -3));
             }
         }
     }

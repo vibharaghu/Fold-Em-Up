@@ -6,6 +6,7 @@ using Yarn.Unity;
 
 public class PlayerScript : MonoBehaviour
 {
+    public static GameObject playerInstance { get; private set; }
     //[Header("Spawn")]
     //public Vector2 SpawnLocation;
     [Header("Movement")]
@@ -17,12 +18,25 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody2D myRigidBody2D;
     public Animator animator;
     public AudioSource footSteps;
+
     private void Awake()
     {
+        if (playerInstance != null && playerInstance != gameObject)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            playerInstance = gameObject;
+        }
         myRigidBody2D = GetComponent<Rigidbody2D>();
         movementEnabled = true;
         animator = GetComponent<Animator>();
         //transform.position = SpawnLocation;
+    }
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
@@ -65,6 +79,10 @@ public class PlayerScript : MonoBehaviour
         CurrScale.x *= -1f;
         transform.localScale = CurrScale;
         //transform.Rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
+    }
+    public void setMoveSpeed(float speed)
+    {
+        movespeed = speed;
     }
 
     [YarnCommand("canMove")]

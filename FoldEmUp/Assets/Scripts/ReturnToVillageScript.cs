@@ -6,6 +6,7 @@ public class ReturnToVillageScript : MonoBehaviour
 {
     [Header("Components")]
     public LogicScript logic;
+    public Vector3 targetVector;
     void Awake()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
@@ -20,7 +21,7 @@ public class ReturnToVillageScript : MonoBehaviour
     {
         if (collision.gameObject.layer == 3)
         {
-            logic.ReturnToVillage();
+            logic.ReturnToVillage(targetVector);
         }
     }
 }
