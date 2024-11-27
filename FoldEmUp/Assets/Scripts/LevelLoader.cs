@@ -44,5 +44,6 @@ public class LevelLoader : MonoBehaviour
         }
         playerScript.canMove(true);
         playerScript.setMoveSpeed(speed);
+        player.SetActive(true);
     }
 }

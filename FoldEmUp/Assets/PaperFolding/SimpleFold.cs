@@ -21,11 +21,13 @@ public class SimpleFold : MonoBehaviour
     List<pointSelect> prev_selec = null;
     bool clear = false;
 
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-
-        
+        levelLoader = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        player.SetActive(false);
     }
 
     public void init(GameObject[][] grid, int scale)
