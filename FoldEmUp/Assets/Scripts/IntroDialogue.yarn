@@ -4,25 +4,19 @@ tags:
 <<canMove Player false>>
 Player: -Knock- -Knock- -Knock-
 <i>CRASH</i>
-Wizard: What’s that? Who? I wasn’t expecting- Wait. Is it the first of the month already?
-Wizard: I guess it must be. You might as well come in then!
+Wizard: What’s that? Who? I wasn’t expecting anyone... wait. Could that be my new apprentice?
+Wizard: In that case, come in, come in! 
 <<canMove Player true>>
+<<disable TowerDoorDialogue>>
 ===
 
-title: WizardEncounter
+title: WizardIntroSpeech
 tags:
 ---
 <<canMove Player false>>
-Wizard: Oh! You must be my new apprentice! Welcome child. 
-Wizard: Um. What was I supposed to teach you again?
-    -> You’re supposed to teach me your magic!
-        Wizard: Oh yes, that! Thank you young one, I fear I've become a little forgetful in my old age. My head is stuffed full of origami folds!
-    -> You’re a weird old man.
-        Wizard: Well I suppose I can’t fault you for that. I am in fact a strange old man- I spend a little bit too much time folding. But I do know I was scheduled to get a new apprentice and teach them about… oh that’s it!
-    -> Sorry, you’ve got the wrong person
-        Wizard: Hm? No, no I was sure it was today… I was supposed to get a new apprentice. Well, even if you aren’t them, you’ll do! Everyone should learn about origami!
-Wizard: So you've come to learn the magic of origami! How wonderful, I do love passing along knowledge of this ancient art. Here in this land, origami is a sacred art. From the trees comes paper, we fold the paper to represent the forms we see in the world around us, and we use the magic of this land to bring the origami to life!
-Wizard: Origami has many wonderful uses, and we’re constantly finding more of them. Can you guess what some of those uses might be?
+Wizard: You must be my new apprentice! Welcome child. I am this town's master folder, and I will be your teacher in the wonderful art of origami!
+Wizard: Here in this land, origami is a sacred art. From the trees comes paper, we fold the paper to represent the forms we see in the world around us, and we use the magic of this land to bring the origami to life!
+Wizard: Origami has many uses, and we’re constantly finding more of them. Can you guess what some of those uses might be?
     -> Relaxing!
         Wizard: Yes indeed! Practicing origami can be very soothing; many in my field have noticed it helps with stress relief, concentration, and patience!
     -> Making cool stuff!
@@ -34,16 +28,87 @@ Wizard: Origami has many wonderful uses, and we’re constantly finding more of 
     -> Tearing it to bits!
         Wizard: Unfortunately that isn't quite correct. When making origami we fold the paper without tearing it, though there are some forms that allow you to make tears... blasphemous! 
 Wizard: As you learn from me, I’ll teach you all about where origami comes from, how we use it, what it can teach us, and how to fold more complex shapes to do bigger and better things. Now then, let’s start with your first lesson - folding a basic diamond!
+<<disable WizardIntroSpeech>>
 <<goToPaperFolding Logic>>
 ===
 
-title: OrigamiComesToLife
+title: WizardAfterFold
 tags:
 ---
 <<canMove Player false>>
 Wizard: Wonderful job apprentice! You'll see the diamond-shaped shield you folded and brought to life following you around now.
-Wizard: A diamond is one of the simplest and fastest origami we can fold, and it does not take much magic to animate it. In exchange, it isn't quite as useful as some more complex origami like a crane.
+Wizard: A diamond is one of the simplest and fastest origami we can fold, but it isn't quite as useful as some more complex origami like a crane.
 Wizard: This origami shield can take a single hit for you if you find yourself in danger, so it's always good to have one around as a backup!
 Wizard: You’re getting the hang of this faster than I expected. Perhaps you can help me with my research soon…
+Wizard: For now, try exploring the town a little and talking to the townsfolk. You might be suprised how much they can teach you!
 <<canMove Player true>>
+<<disable WizardAfterFold>>
+===
+
+title: BattleBegin
+tags:
+---
+<<canMove Player false>>
+Stranger: Nice town here. Shame you won't be seeing any more of it.
+    -> What do you mean?
+        Stranger: We're here to elimiate all those who practice that blasphemous art of origami - starting with you!
+===
+
+title: BattleFinished
+tags:
+---
+<<canMove Player false>>
+Stranger: Ugh! I don't have time to play with you anymore.
+Stranger: We already have what we need - the wizard! You're of no use to us.
+Stranger: Come after us if you dare! We'lll be waiting!
+<<canMove Player true>>
+===
+
+title: Architect
+tags:
+---
+<<canMove Player false>>
+Architect: Hmm, maybe this angle? It might help lengthen the shadows...
+Architect: Oh hello! Are you the new origami apprentice? Welcome!
+Architect: I was just pondering some new building designs. Incorporating origami folds into a building helps me play with light and shadow, creating beautiful edificies and areas of contrast!
+<<canMove Player true>>
+===
+
+title: PaperMaker
+tags:
+---
+<<canMove Player false>>
+Paper Maker: Hello there! Are you the wizard's new apprentice? It's always good to have another origami maker in town, you'll keep me in business!
+Paper Maker: I'm one of the paper makers here. I'm afraid the wind has scattered my creations all over town so you might find some extra paper if you look around!
+Paper Maker: Did you know origami started around the same time paper was invented? It's true! Origami was originally associated with the nobility due to the high cost of paper, but it's become more widespread as we figured out cheaper ways to make paper!
+<<canMove Player true>>
+<<disable PaperMaker>>
+===
+
+title: Inventor
+tags:
+---
+<<canMove Player false>>
+Inventor: -Grumble- this darn cloth won't fit in the tube...
+Inventor: Oh! Hello. Sorry about this, I'm just working on this invention. It's supposed to shoot out a big sheet of cloth, but I can't get it to fit in this tube!
+Inventor: Maybe I should ask the wizard in his tower if he knows a good origami fold to make it fit. Origami is great at making stuff smaller...
+<<canMove Player true>>
+===
+
+title: EntranceVillager
+tags:
+---
+<<canMove Player false>>
+Villager: Welcome to our village! You look a little lost- how can I help?
+    -> Where are we?
+        Villager: Oh this is Orikata Village, home to some of the finest papermakers around! We're here to support origami makers all over, and one of the best lives right here in town!
+        Villager: Actually, perhaps you're here looking for him! You can find him in the big tower near the pink trees over to the left. 
+    -> Who are you?
+        Villager: I'm the town crier! It's my job to make sure everyone is up to date on the news and on schedule. Paper won't make itself after all, and paper is what we're known for!
+        Villager: In fact, one of the best origami wizards around lives right here in town! Perhaps you're here looking for him? You can find him in the big tower near the pink trees over to the left.
+    -> What should I do next?
+        Villager: Hmm, that depends on what you're looking for. Are you here to learn about origami? That's what most visitors come looking for!
+        Villager: After all, one of the best origami wizards around lives right here in town! Perhaps you're here looking for him? You can find him in the big tower near the pink trees over to the left.
+<<canMove Player true>>
+<<disable EntranceVillager>>
 ===

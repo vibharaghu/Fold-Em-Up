@@ -28,6 +28,16 @@ public class YarnInteractable : MonoBehaviour
         }
     }
 
+    public void OnMouseDown()
+    {
+        // if this character is enabled and no conversation is already running
+        if (interactable && !dialogueRunner.IsDialogueRunning)
+        {
+            // then run this character's conversation
+            StartConversation();
+        }
+    }
+
     private void StartConversation()
     {
         isCurrentConversation = true;
@@ -38,6 +48,11 @@ public class YarnInteractable : MonoBehaviour
     {
         if (isCurrentConversation)
         {
+            if (this.transform.childCount > 0)
+            {
+                //turn off the dialogue indicator
+                this.transform.GetChild(0).gameObject.SetActive(false);
+            }
             isCurrentConversation = false;
         }
     }
@@ -46,5 +61,23 @@ public class YarnInteractable : MonoBehaviour
     public void DisableConversation()
     {
         interactable = false;
+
+        if (this.transform.childCount > 0)
+        {
+            //turn off the dialogue indicator
+            this.transform.GetChild(0).gameObject.SetActive(false);
+        }
+    }
+
+    [YarnCommand("enable")]
+    public void EnableConversation()
+    {
+        interactable = true;
+
+        if (this.transform.childCount > 0)
+        {
+            //turn on the dialogue indicator
+            this.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 }
