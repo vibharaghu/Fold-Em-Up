@@ -247,7 +247,7 @@ public class SimpleFold : MonoBehaviour
             ///Once all four folds are made, go back to the wizard tower
 
             //add in a delay/congrats message here before scene change?
-            levelLoader.LoadGivenLevel("WizardTowerPostFold", Vector3.zero,4);
+            levelLoader.LoadGivenLevel("Wizard Tower", new Vector3(0.897f, -4f, -2f),4);
         }
 
         
