@@ -9,10 +9,12 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1f;
     public GameObject player;
+    public PromptCanvasScript PromptCanvasScript;
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
         player = GameObject.FindGameObjectWithTag("Player");
+        PromptCanvasScript = GameObject.FindGameObjectWithTag("Prompt").GetComponent<PromptCanvasScript>();
     }
     private void Awake()
     {
@@ -45,5 +47,6 @@ public class LevelLoader : MonoBehaviour
         playerScript.canMove(true);
         playerScript.setMoveSpeed(speed);
         player.SetActive(true);
+        PromptCanvasScript.OnLoading(sceneName);
     }
 }
