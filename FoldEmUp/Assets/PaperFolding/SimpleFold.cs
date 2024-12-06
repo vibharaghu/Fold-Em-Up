@@ -22,6 +22,7 @@ public class SimpleFold : MonoBehaviour
     List<pointSelect> prev_selec = null;
     bool clear = false;
     AudioSource paper_fold;
+    
 
     private GameObject player;
     // Start is called before the first frame update
