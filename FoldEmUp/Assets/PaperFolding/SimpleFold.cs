@@ -7,6 +7,7 @@ using Yarn.Unity;
 public class SimpleFold : MonoBehaviour
 {
     [SerializeField] public LevelLoader levelLoader;
+    public GameObject goal; 
     public PromptCanvasScript PromptCanvasScript;
     int scale = 0;
     GameObject[][] grid;
@@ -302,6 +303,7 @@ public class SimpleFold : MonoBehaviour
             ///Once all four folds are made, go back to the wizard tower
 
             //add in a delay/congrats message here before scene change?
+            goal.SetActive(false);
             levelLoader.LoadGivenLevel("Wizard Tower", new Vector3(0.897f, -4f, -2f),4);
         }
 
