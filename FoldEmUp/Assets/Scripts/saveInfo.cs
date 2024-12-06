@@ -44,6 +44,8 @@ public class saveInfo : MonoBehaviour
                 Vector3 spawnPosition = GameObject.Find("Player").transform.position;
                 Instantiate(shield, spawnPosition, Quaternion.identity);
 
+                GameObject.Find("Instructions").GetComponent<YarnScript>().start = false;
+
                 //enable the enemy so that the turn-based battle section can start
                 enemy.SetActive(true);
                 if (battleComplete)

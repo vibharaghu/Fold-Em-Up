@@ -9,7 +9,7 @@ public class YarnScript : MonoBehaviour
     [SerializeField] private string conversationStartNode;
 
     private DialogueRunner dialogueRunner;
-    private bool interactable = true;
+    public bool start = true;
     private bool isCurrentConversation = false;
     // Start is called before the first frame update
     void Start()
@@ -21,8 +21,13 @@ public class YarnScript : MonoBehaviour
 
     private void StartConversation()
     {
-        isCurrentConversation = true;
-        dialogueRunner.StartDialogue(conversationStartNode);
+        if (start) {
+
+            isCurrentConversation = true;
+            dialogueRunner.StartDialogue(conversationStartNode);
+        }
+
+        
     }
 
     private void EndConversation()
