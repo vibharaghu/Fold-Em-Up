@@ -8,17 +8,19 @@ public class saveInfo : MonoBehaviour
     public bool foldTutorialComplete;
     public bool battleComplete;
     public GameObject shield;
-
+    public bool instruct;
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
         foldTutorialComplete = false;
+        instruct = true;
     }
 
     void OnSceneLoaded(Scene sc, LoadSceneMode mode)
     {
+       
         if (sc.name == "Wizard Tower")
         {
             if (foldTutorialComplete)
@@ -32,6 +34,11 @@ public class saveInfo : MonoBehaviour
         }
         else if (sc.name == "StartTownScene")
         {
+            if (!instruct)
+            { 
+                    GameObject.Find("Instructions").GetComponent<YarnScript>().start = false;
+                
+            }
             GameObject enemy = GameObject.Find("Enemy");
             if (foldTutorialComplete)
             {
@@ -44,7 +51,7 @@ public class saveInfo : MonoBehaviour
                 Vector3 spawnPosition = GameObject.Find("Player").transform.position;
                 Instantiate(shield, spawnPosition, Quaternion.identity);
 
-                GameObject.Find("Instructions").GetComponent<YarnScript>().start = false;
+                
 
                 //enable the enemy so that the turn-based battle section can start
                 enemy.SetActive(true);
@@ -66,6 +73,11 @@ public class saveInfo : MonoBehaviour
         {
             battleComplete = true;
             GameObject.Find("Player").GetComponent<PlayerScript>().movementEnabled = false;
+        }
+
+        if (instruct)
+        {
+            instruct = false;
         }
 
     }
