@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
 using Yarn.Unity;
 
@@ -32,7 +33,16 @@ public class PlayerScript : MonoBehaviour
         myRigidBody2D = GetComponent<Rigidbody2D>();
         movementEnabled = true;
         animator = GetComponent<Animator>();
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            StartCoroutine(TurnInactive());
+        }
         //transform.position = SpawnLocation;
+    }
+    IEnumerator TurnInactive()
+    {
+        yield return new WaitForSeconds(.01f);
+        gameObject.SetActive(false);
     }
     private void Start()
     {

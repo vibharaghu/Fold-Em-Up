@@ -6,6 +6,7 @@ public class OrigamiFollow : MonoBehaviour
 {
     private Transform target;
     public float speed;
+    private float speedModifier = .5f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class OrigamiFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        float distanceToPlayer = (target.position - gameObject.transform.position).magnitude;
+        transform.position = Vector2.MoveTowards(transform.position, target.position, (speed + Mathf.Pow(speedModifier * distanceToPlayer,2)) * Time.deltaTime);
     }
 }
