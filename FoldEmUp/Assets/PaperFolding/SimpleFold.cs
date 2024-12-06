@@ -46,12 +46,27 @@ public class SimpleFold : MonoBehaviour
         fold[2] = false;
         fold[3] = false;
 
+        for(int i = 0; i < scale + 1; i++)
+        {
+            for(int j = 0; j < scale+1; j++)
+            {
+                grid[i][j].GetComponent<pointSelect>().hide_dot();
+            }
+        }
+
 
         corners = new GameObject[4];
         corners[0] = grid[0][0];
         corners[1] = grid[0][scale];
         corners[2] = grid[scale][scale];
         corners[3] = grid[scale][0];
+
+        corners[0].GetComponent<pointSelect>().show_dot();
+        corners[1].GetComponent<pointSelect>().show_dot();
+        corners[2].GetComponent<pointSelect>().show_dot();
+        corners[3].GetComponent<pointSelect>().show_dot();
+
+        grid[scale / 2][scale/2].GetComponent<pointSelect>().show_dot();
 
         initialized = true;
 
