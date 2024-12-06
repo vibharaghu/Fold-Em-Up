@@ -74,6 +74,14 @@ Architect: I was just pondering some new building designs. Incorporating origami
 <<canMove Player true>>
 ===
 
+title: FoldInstructions
+tags:
+---
+<<fold Paper false>>
+Wizard: Use your mouse to select the corners of the paper!
+<<fold Paper true>>
+===
+
 title: PaperMaker
 tags:
 ---

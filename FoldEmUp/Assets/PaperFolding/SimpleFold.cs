@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 public class SimpleFold : MonoBehaviour
 {
@@ -22,7 +23,29 @@ public class SimpleFold : MonoBehaviour
     List<pointSelect> prev_selec = null;
     bool clear = false;
     AudioSource paper_fold;
-    
+    bool movementEnabled;
+
+
+    [YarnCommand("fold")]
+    public void foldingbool(bool canMove)
+    {
+        movementEnabled = canMove;
+        if (canMove)
+        {
+            for (int i = 0; i < scale + 1; i++)
+            {
+                for (int j = 0; j < scale + 1; j++)
+                {
+                    grid[i][j].GetComponent<pointSelect>().instructions = canMove;
+                }
+            }
+        }
+        
+    }
+
+
+
+
 
     private GameObject player;
     // Start is called before the first frame update
@@ -30,11 +53,17 @@ public class SimpleFold : MonoBehaviour
     {
         levelLoader = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
         player = GameObject.FindGameObjectWithTag("Player");
-        PromptCanvasScript = GameObject.FindGameObjectWithTag("Prompt").GetComponent<PromptCanvasScript>();
+        //PromptCanvasScript = GameObject.FindGameObjectWithTag("Prompt").GetComponent<PromptCanvasScript>();
         player.SetActive(false);
         paper_fold = gameObject.GetComponent<AudioSource>();
 
+       
+
     }
+
+    
+
+   
 
     public void init(GameObject[][] grid, int scale)
     {
@@ -104,14 +133,14 @@ public class SimpleFold : MonoBehaviour
     {
 
         
-        if (initialized)
+        if (initialized && movementEnabled)
         {
             
             pointSelect four_count = four_selected();
-            if (four_count != null)
+            /*if (four_count != null)
             {
                 PromptCanvasScript.DisableClickPrompt();
-            }
+            }*/
             int middle_count = middle_selected();
             List<pointSelect> any_selec = any_selected();
             

@@ -9,12 +9,14 @@ public class pointSelect : MonoBehaviour
     public bool selected;
     public Vector2 loc;
     int scale = 0;
+    public bool instructions = false;
 
     void Awake()
     {
         sprend = GetComponent<SpriteRenderer>();
         sprend.color = Color.gray;
         entered = false;
+
     }
 
     public void setloc(int r, int c, int scale, GameObject po)
@@ -40,17 +42,23 @@ public class pointSelect : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (selected == false)
+        if (instructions)
         {
-            selected = true;
+            if (selected == false)
+            {
+                selected = true;
 
-            
-            
 
-        } else {
-            selected = false;
-            
+
+
+            }
+            else
+            {
+                selected = false;
+
+            }
         }
+        
     }
 
 
@@ -58,7 +66,7 @@ public class pointSelect : MonoBehaviour
     private void OnMouseEnter()
     {
 
-        if (!selected)
+        if (!selected && instructions)
         {
 
             //print("entered" + gameObject.name);
@@ -83,7 +91,7 @@ public class pointSelect : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (!selected) {
+        if (!selected && instructions) {
 
             //print("exited" + gameObject.name);
             sprend.color = Color.gray;
