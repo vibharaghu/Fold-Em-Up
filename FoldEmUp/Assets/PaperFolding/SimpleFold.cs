@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SimpleFold : MonoBehaviour
 {
     [SerializeField] public LevelLoader levelLoader;
+    public PromptCanvasScript PromptCanvasScript;
     int scale = 0;
     GameObject[][] grid;
     GameObject[] corners;
@@ -27,6 +28,7 @@ public class SimpleFold : MonoBehaviour
     {
         levelLoader = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
         player = GameObject.FindGameObjectWithTag("Player");
+        PromptCanvasScript = GameObject.FindGameObjectWithTag("Prompt").GetComponent<PromptCanvasScript>();
         player.SetActive(false);
     }
 
@@ -87,6 +89,10 @@ public class SimpleFold : MonoBehaviour
         {
             
             pointSelect four_count = four_selected();
+            if (four_count != null)
+            {
+                PromptCanvasScript.DisableClickPrompt();
+            }
             int middle_count = middle_selected();
             List<pointSelect> any_selec = any_selected();
             
