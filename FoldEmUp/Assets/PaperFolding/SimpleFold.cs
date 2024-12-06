@@ -20,14 +20,16 @@ public class SimpleFold : MonoBehaviour
     public Sprite folded_four;
     List<pointSelect> prev_selec = null;
     bool clear = false;
+   
 
     private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        levelLoader = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        player.SetActive(false);
+        //Add Back
+        //levelLoader = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
+        //player = GameObject.FindGameObjectWithTag("Player");
+        //player.SetActive(false);
     }
 
     public void init(GameObject[][] grid, int scale)
@@ -249,6 +251,8 @@ public class SimpleFold : MonoBehaviour
             //add in a delay/congrats message here before scene change?
             levelLoader.LoadGivenLevel("Wizard Tower", new Vector3(0.897f, -4f, -2f),4);
         }
+
+
 
         
     }
