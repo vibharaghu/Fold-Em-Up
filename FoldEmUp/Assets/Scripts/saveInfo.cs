@@ -65,6 +65,7 @@ public class saveInfo : MonoBehaviour
         else if (sc.name == "BattleSequence")
         {
             battleComplete = true;
+            GameObject.Find("Player").GetComponent<PlayerScript>().movementEnabled = false;
         }
 
     }
