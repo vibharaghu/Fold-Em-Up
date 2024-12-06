@@ -82,6 +82,14 @@ Wizard: Use your mouse to select the corners of the paper!
 <<fold Paper true>>
 ===
 
+title: MoveInstructions
+tags:
+---
+<<canMove Player false>>
+Use WASD or arrow keys to move and space to continue dialogue!
+<<canMove Player true>>
+===
+
 title: PaperMaker
 tags:
 ---
