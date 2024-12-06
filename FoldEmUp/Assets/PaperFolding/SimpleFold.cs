@@ -21,6 +21,8 @@ public class SimpleFold : MonoBehaviour
     public Sprite folded_four;
     List<pointSelect> prev_selec = null;
     bool clear = false;
+    AudioSource paper_fold;
+    
 
     private GameObject player;
     // Start is called before the first frame update
@@ -30,6 +32,8 @@ public class SimpleFold : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         PromptCanvasScript = GameObject.FindGameObjectWithTag("Prompt").GetComponent<PromptCanvasScript>();
         player.SetActive(false);
+        paper_fold = gameObject.GetComponent<AudioSource>();
+
     }
 
     public void init(GameObject[][] grid, int scale)
@@ -42,12 +46,27 @@ public class SimpleFold : MonoBehaviour
         fold[2] = false;
         fold[3] = false;
 
+        for(int i = 0; i < scale + 1; i++)
+        {
+            for(int j = 0; j < scale+1; j++)
+            {
+                grid[i][j].GetComponent<pointSelect>().hide_dot();
+            }
+        }
+
 
         corners = new GameObject[4];
         corners[0] = grid[0][0];
         corners[1] = grid[0][scale];
         corners[2] = grid[scale][scale];
         corners[3] = grid[scale][0];
+
+        corners[0].GetComponent<pointSelect>().show_dot();
+        corners[1].GetComponent<pointSelect>().show_dot();
+        corners[2].GetComponent<pointSelect>().show_dot();
+        corners[3].GetComponent<pointSelect>().show_dot();
+
+        grid[scale / 2][scale/2].GetComponent<pointSelect>().show_dot();
 
         initialized = true;
 
@@ -173,6 +192,7 @@ public class SimpleFold : MonoBehaviour
 
     void fold_paper()
     {
+        paper_fold.PlayScheduled(1);
         ArrayList fold_count = new ArrayList(); 
         for (int i = 0; i < 4; i++)
         {

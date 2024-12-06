@@ -74,6 +74,11 @@ public class pointSelect : MonoBehaviour
         gameObject.SetActive(false);
 
     }
+    public void show_dot()
+    {
+        gameObject.SetActive(true);
+
+    }
 
 
     private void OnMouseExit()
