@@ -385,7 +385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5129806461596165462, guid: 345ab65efefb3bd4ca24fe7c5fbfad86, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5129806461596165462, guid: 345ab65efefb3bd4ca24fe7c5fbfad86, type: 3}
       propertyPath: m_audioClip
@@ -2712,6 +2712,18 @@ PrefabInstance:
     - target: {fileID: 1488830855562077540, guid: 7d12f77d04b414c4b92ee0ac650dfae7, type: 3}
       propertyPath: m_Name
       value: Prompts Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951867266322142314, guid: 7d12f77d04b414c4b92ee0ac650dfae7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.18244925
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951867266322142314, guid: 7d12f77d04b414c4b92ee0ac650dfae7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951867266322142314, guid: 7d12f77d04b414c4b92ee0ac650dfae7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.91960067
       objectReference: {fileID: 0}
     - target: {fileID: 8107843403049962229, guid: 7d12f77d04b414c4b92ee0ac650dfae7, type: 3}
       propertyPath: m_Pivot.x
