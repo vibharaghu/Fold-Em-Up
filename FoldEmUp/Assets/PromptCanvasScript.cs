@@ -41,6 +41,10 @@ public class PromptCanvasScript : MonoBehaviour
                 ClickPrompt.SetActive(true);
             }
         }
+        else if (sceneName == "MainMenu")
+        {
+            return;
+        }
         else
         {
             if (triggerMovementFlag)
