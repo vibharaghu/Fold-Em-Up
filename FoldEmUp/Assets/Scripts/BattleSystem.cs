@@ -166,7 +166,7 @@ public class BattleSystem : MonoBehaviour
             dialogueText.text = "Congratulations on your first victory!";
             yield return new WaitForSeconds(3f);
             //head back to the village
-            logic.ReturnToVillage(new Vector3(-22f, -1.19f, 3.88f));
+            logic.ReturnToVillage(new Vector3(-21.28f, -3.66f, 3.88f));
         } else if (state == BattleState.LOST)
         {
             dialogueText.text = "You lost the battle and fall unconcious...";
