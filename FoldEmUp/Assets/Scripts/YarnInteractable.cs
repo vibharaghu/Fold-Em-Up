@@ -5,7 +5,7 @@ using Yarn.Unity;
 
 public class YarnInteractable : MonoBehaviour
 {
-    [SerializeField] private string conversationStartNode;
+    [SerializeField] public string conversationStartNode;
 
     private DialogueRunner dialogueRunner;
     private bool interactable = true;

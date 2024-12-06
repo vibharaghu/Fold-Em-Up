@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class saveInfo : MonoBehaviour
 {
     public bool foldTutorialComplete;
+    public bool battleComplete;
     public GameObject shield;
 
     // Start is called before the first frame update
@@ -31,6 +32,7 @@ public class saveInfo : MonoBehaviour
         }
         else if (sc.name == "StartTownScene")
         {
+            GameObject enemy = GameObject.Find("Enemy");
             if (foldTutorialComplete)
             {
                 //turn off the town crier's intro dialogue
@@ -42,13 +44,25 @@ public class saveInfo : MonoBehaviour
                 Vector3 spawnPosition = GameObject.Find("Player").transform.position;
                 Instantiate(shield, spawnPosition, Quaternion.identity);
 
-                //spawn in the enemy so that the turn-based battle section can start
+                //enable the enemy so that the turn-based battle section can start
+                enemy.SetActive(true);
+                if (battleComplete)
+                {
+                    enemy.GetComponentInChildren<YarnInteractable>().conversationStartNode = "BattleFinished";
+                }
             }
-
+            else
+            {
+                enemy.SetActive(false);
+            }
         }
         else if (sc.name == "SimpleFold")
         {
             foldTutorialComplete = true;
+        }
+        else if (sc.name == "BattleSequence")
+        {
+            battleComplete = true;
         }
 
     }
