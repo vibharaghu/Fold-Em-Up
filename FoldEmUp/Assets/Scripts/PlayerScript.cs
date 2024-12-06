@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
 using Yarn.Unity;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -31,7 +32,14 @@ public class PlayerScript : MonoBehaviour
             playerInstance = gameObject;
         }
         myRigidBody2D = GetComponent<Rigidbody2D>();
-        movementEnabled = true;
+        if (SceneManager.GetActiveScene().name != "BattleSequence")
+        {
+            movementEnabled = true;
+        }
+        else
+        {
+            movementEnabled = false;
+        }
         animator = GetComponent<Animator>();
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
@@ -39,11 +47,13 @@ public class PlayerScript : MonoBehaviour
         }
         //transform.position = SpawnLocation;
     }
+
     IEnumerator TurnInactive()
     {
         yield return new WaitForSeconds(.01f);
         gameObject.SetActive(false);
     }
+
     private void Start()
     {
         DontDestroyOnLoad(gameObject);

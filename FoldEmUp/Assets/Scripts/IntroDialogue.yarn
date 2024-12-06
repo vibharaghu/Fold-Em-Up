@@ -52,6 +52,7 @@ tags:
 Stranger: Nice town here. Shame you won't be seeing any more of it.
     -> What do you mean?
         Stranger: We're here to elimiate all those who practice that blasphemous art of origami - starting with you!
+<<goToBattle Logic>>
 ===
 
 title: BattleFinished
@@ -62,6 +63,7 @@ Stranger: Ugh! I don't have time to play with you anymore.
 Stranger: We already have what we need - the wizard! You're of no use to us.
 Stranger: Come after us if you dare! We'lll be waiting!
 <<canMove Player true>>
+<<disable EnemySpeech>>
 ===
 
 title: Architect
@@ -95,8 +97,8 @@ tags:
 ---
 <<canMove Player false>>
 Paper Maker: Hello there! Are you the wizard's new apprentice? It's always good to have another origami maker in town, you'll keep me in business!
-Paper Maker: I'm one of the paper makers here. I'm afraid the wind has scattered my creations all over town so you might find some extra paper if you look around!
-Paper Maker: Did you know origami started around the same time paper was invented? It's true! Origami was originally associated with the nobility due to the high cost of paper, but it's become more widespread as we figured out cheaper ways to make paper!
+Paper Maker: I'm one of the paper makers here. Did you know origami started around the same time paper was invented? It's true! Origami was originally associated with the nobility due to the high cost of paper, but it's become more widespread as we figured out cheaper ways to make paper!
+Paper Maker: If you come visit me later, maybe I can help teach you how to make your own paper out of the materials you find!
 <<canMove Player true>>
 <<disable PaperMaker>>
 ===

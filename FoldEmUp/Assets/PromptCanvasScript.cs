@@ -41,7 +41,7 @@ public class PromptCanvasScript : MonoBehaviour
                 ClickPrompt.SetActive(true);
             }
         }
-        else if (sceneName == "MainMenu")
+        else if (sceneName == "MainMenu" || sceneName == "BattleSequence")
         {
             return;
         }

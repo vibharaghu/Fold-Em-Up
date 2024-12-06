@@ -39,5 +39,9 @@ public class LogicScript : MonoBehaviour
     {
         levelLoader.LoadGivenLevel("SimpleFold", Vector3.zero, 4);
     }
-
+    [YarnCommand("goToBattle")]
+    public void GoToBattle()
+    {
+        levelLoader.LoadGivenLevel("BattleSequence", new Vector3(-3.08f, -1.22f, -2f), 4);
+    }
 }
