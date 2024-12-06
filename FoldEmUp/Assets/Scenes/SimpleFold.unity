@@ -693,7 +693,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8fd1e3756dab64489b069b7d241995f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88f4bb28589a9477e8b7d4e5a23630e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -726,6 +726,10 @@ PrefabInstance:
     - target: {fileID: 1488830855562077540, guid: 7d12f77d04b414c4b92ee0ac650dfae7, type: 3}
       propertyPath: m_Name
       value: Prompts Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664407998821362627, guid: 7d12f77d04b414c4b92ee0ac650dfae7, type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3664407998821362627, guid: 7d12f77d04b414c4b92ee0ac650dfae7, type: 3}
       propertyPath: m_Color.b
@@ -1250,10 +1254,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelLoader: {fileID: 441157786}
   PromptCanvasScript: {fileID: 0}
-  folded_one: {fileID: 21300000, guid: f7f0e19b863bd4dd79bb0cf374c97196, type: 3}
-  folded_two_adjacent: {fileID: 21300000, guid: 1c5f810cb7a7f402ea519a143a0c2b42, type: 3}
-  folded_two_opposite: {fileID: 21300000, guid: 3592ef740b5b44f2dbeab72b303b1d66, type: 3}
-  folded_three: {fileID: 21300000, guid: 892a8a472674544efaa71de94739501e, type: 3}
+  folded_one: {fileID: 21300000, guid: f03797974c8b24ed7bc0190d55023d94, type: 3}
+  folded_two_adjacent: {fileID: 21300000, guid: aa611c91838c6476d85c3cefad85f855, type: 3}
+  folded_two_opposite: {fileID: 21300000, guid: 5e766da1f913b4ca3a417b9fda0ebde0, type: 3}
+  folded_three: {fileID: 21300000, guid: e4b251afa693147eaa7ff8c4e431914c, type: 3}
   folded_four: {fileID: 21300000, guid: 0db54fd60a0d146eb9fdce3254ea39f3, type: 3}
 --- !u!82 &1747799345
 AudioSource:
