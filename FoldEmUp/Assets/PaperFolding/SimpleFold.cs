@@ -239,6 +239,7 @@ public class SimpleFold : MonoBehaviour
             if (corners[i].GetComponent<pointSelect>().selected)
             {
                 corner_selected = i;
+                print(corner_selected);
             }
         }
 
@@ -253,20 +254,25 @@ public class SimpleFold : MonoBehaviour
 
         } else if (fold_count.Count == 1)
         {
-            if (((int) fold_count[0] + 1) % 4 == corner_selected || ((int)fold_count[0] - 1) % 4 == corner_selected)
+            int isAdj = ((int)fold_count[0] - 1) % 4;
+            if (isAdj < 0) {
+                isAdj += 4;
+            }
+            if (isAdj == corner_selected || (isAdj == corner_selected))
             {
                 GameObject paper = GameObject.Find("Paper Mesh");
                 paper.GetComponent<SpriteRenderer>().sprite = folded_two_adjacent;
                 paper.GetComponent<SpriteRenderer>().sortingOrder = -1;
                 fold[corner_selected] = true;
 
-                if (((int)fold_count[0] - 1) % 4 == corner_selected)
+                if (isAdj == corner_selected)
                 {
                     paper.transform.Rotate(0, 0, 90);
                 }
 
             } else {
-
+                print(fold_count[0] + " " + corner_selected);
+                print(((int)fold_count[0] - 1) % 4);
                 GameObject paper = GameObject.Find("Paper Mesh");
                 paper.GetComponent<SpriteRenderer>().sprite = folded_two_opposite;
                 paper.GetComponent<SpriteRenderer>().sortingOrder = -1;
